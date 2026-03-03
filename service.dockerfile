@@ -60,9 +60,9 @@ COPY files/shared/envsub.awk /scripts/
 COPY files/service/scripts/ ./
 
 COPY files/service/config.json.template /usr/share/odk/
-COPY files/service/env.d/ /usr/share/odk/env.d/
 COPY files/service/crontab /etc/cron.d/odk
-COPY files/service/odk-cmd /usr/bin/
+COPY files/service/odk-cmd files/service/db-env-bash /usr/bin/
+SHELL ["/usr/bin/db-env-bash", "-c"]
 
 COPY --from=intermediate /tmp/sentry-versions/ ./sentry-versions
 

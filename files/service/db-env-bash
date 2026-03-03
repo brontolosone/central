@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 # if the PGSERVICE mechanism — libpq named configurations (specified through this env var)
 # sourced from a file (referenced through PGSERVICEFILE env var) is used, leave everything be.
 if ! [[ -v PGSERVICE ]]; then
@@ -21,3 +23,5 @@ if ! [[ -v PGSERVICE ]]; then
   [[ -v PGAPPNAME ]] || export PGAPPNAME=odkcentral
 
 fi
+
+exec /usr/bin/bash ${@}

@@ -5,7 +5,7 @@ shopt -s inherit_errexit
 set -e
 STREAM_URL="https://odk-nginx.example.test:9001/v1/chunked"
 BROKEN_STREAM_URL="${STREAM_URL}?crash=1"
-CURL="curl --resolve odk-nginx.example.test:9001:127.0.0.1 --insecure --fail --verbose --silent --show-error"
+CURL="curl --resolve odk-nginx.example.test:9001:127.0.0.1 --insecure --fail --output /dev/null --silent --show-error"
 
 # check completed stream on HTTP/1.1
 $CURL --http1.1 ${STREAM_URL}
